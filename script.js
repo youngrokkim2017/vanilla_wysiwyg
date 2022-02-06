@@ -3,6 +3,13 @@ const underlineBtn = document.querySelector('#underline-btn')
 const italicBtn = document.querySelector('#italic-btn')
 const colorBtn = document.querySelector('#color-btn')
 
+const newBtn = document.querySelector('#new-btn')
+const txtBtn = document.querySelector('#txt-btn')
+const pdfBtn = document.querySelector('#pdf-btn')
+
+const content = document.querySelector('#content')
+const filename = document.querySelector('#filename-input')
+
 boldBtn.addEventListener('click', () => {
     document.execCommand('bold')
 })
@@ -17,4 +24,21 @@ italicBtn.addEventListener('click', () => {
 
 colorBtn.addEventListener('input', () => {
     document.execCommand('forecolor', false, colorBtn.value) // foreground color
+})
+
+newBtn.addEventListener('click', () => {
+    content.innerHTML = ''
+})
+
+txtBtn.addEventListener('click', () => {
+    const a = document.createElement('a')
+
+    const blob = new Blob([content.innerText]) // get binary data
+
+    // create data url
+    const dataUrl = URL.createObjectURL(blob)
+
+    a.href = dataUrl
+    a.download = filename.value + '.txt'
+    a.click()
 })
