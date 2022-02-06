@@ -5,7 +5,7 @@ const colorBtn = document.querySelector('#color-btn')
 
 const newBtn = document.querySelector('#new-btn')
 const txtBtn = document.querySelector('#txt-btn')
-const pdfBtn = document.querySelector('#pdf-btn')
+// const pdfBtn = document.querySelector('#pdf-btn')
 
 const content = document.querySelector('#content')
 const filename = document.querySelector('#filename-input')
